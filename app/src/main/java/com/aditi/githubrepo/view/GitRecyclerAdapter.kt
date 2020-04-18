@@ -16,6 +16,8 @@ import com.aditi.githubrepo.listner.RecyclerClickListerner
 import com.aditi.githubrepo.view.GitRecyclerAdapter.RecyclerViewHolder
 import com.aditi.githubrepo.viewModel.api.GithubRepoData.repoData
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.bumptech.glide.request.RequestOptions
 
 class GitRecyclerAdapter(var context:Context,var gitUserList:MutableList<repoData>?,var listener:RecyclerClickListerner): RecyclerView.Adapter<RecyclerViewHolder>(), Filterable {
 
@@ -31,7 +33,9 @@ class GitRecyclerAdapter(var context:Context,var gitUserList:MutableList<repoDat
     override fun onBindViewHolder(holder: RecyclerViewHolder, position: Int) {
         holder.userName.setText(this.gitUserList!![position].login)
         holder.userRepoId.setText(gitUserList!![position]!!.id.toString())
-        Glide.with(context).load(gitUserList!![position].avatar_url).into(holder.imageView)
+
+        val requestOption = RequestOptions().diskCacheStrategy(DiskCacheStrategy.ALL).override(50,50)
+        Glide.with(context).load(gitUserList!![position].avatar_url).apply(requestOption).into(holder.imageView)
     }
 
     fun reset(list: MutableList<repoData>) {

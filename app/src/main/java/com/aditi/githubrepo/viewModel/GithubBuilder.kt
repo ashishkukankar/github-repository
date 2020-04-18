@@ -7,23 +7,21 @@ import java.lang.Exception
 
 class GithubBuilder {
 
+companion object {
+    fun invoke(): ApiService? {
 
-     fun invoke(): ApiService? {
-
-         try {
-           val retrofit=  Retrofit.Builder().
-                 baseUrl("https://api.github.com")
-                 .addConverterFactory(GsonConverterFactory.create()).
-                     build()
-             return retrofit.create(ApiService::class.java)
-         }catch (e:Exception){
-             println("error message=${e.message}")
-         }
+        try {
+            val retrofit = Retrofit.Builder().baseUrl("https://api.github.com")
+                .addConverterFactory(GsonConverterFactory.create()).build()
+            return retrofit.create(ApiService::class.java)
+        } catch (e: Exception) {
+            println("error message=${e.message}")
+        }
 
         return null
 
-     }
-
+    }
+}
 }
 
 

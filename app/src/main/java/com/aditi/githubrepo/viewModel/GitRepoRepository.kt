@@ -30,7 +30,7 @@ class GitRepoRepository{
 
 
     fun getAllUser(){
-         val apiService = githubBuilder.invoke()
+         val apiService = GithubBuilder.invoke()
         apiService?.GetAllUsers()?.enqueue(object : Callback<MutableList<repoData>> {
             override fun onFailure(
                 call: Call<MutableList<repoData>>,
@@ -53,7 +53,7 @@ class GitRepoRepository{
 
 
     fun getUserDetail(repoName:String){
-        val apiService = githubBuilder.invoke()
+        val apiService =GithubBuilder.invoke()
         apiService?.getUserDetail(repoName)?.enqueue(object : Callback<User> {
             override fun onFailure(
                 call: Call<User>,
@@ -77,7 +77,7 @@ class GitRepoRepository{
 
 
     fun getRepositoryList(repoName:String){
-        val apiService = githubBuilder.invoke()
+        val apiService = GithubBuilder.invoke()
         apiService?.getRepositoryList(repoName)?.enqueue(object : Callback<MutableList<RepositoryList>> {
             override fun onFailure(
                 call: Call<MutableList<RepositoryList>>,

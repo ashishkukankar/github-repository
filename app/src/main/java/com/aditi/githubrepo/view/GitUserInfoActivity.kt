@@ -13,6 +13,7 @@ import com.aditi.githubrepo.R.id
 import com.aditi.githubrepo.R.layout
 import com.aditi.githubrepo.viewModel.GitRepoViewModel
 import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.util.*
@@ -64,7 +65,9 @@ class GitUserInfoActivity: AppCompatActivity() {
             joinDate.text  = getDateFormated(it.created_at)
             follower.text  = "${it.followers} followers"
             following.text = "${it.following} following"
-            Glide.with(this).load(it.avatar_url).into(userImage)
+            Glide.with(this).load(it.avatar_url)
+                .thumbnail(Glide.with(this).load(it.avatar_url).apply(RequestOptions().override(50,50)))
+                .into(userImage)
 
         })
 
@@ -75,6 +78,7 @@ class GitUserInfoActivity: AppCompatActivity() {
         })
 
     }
+
 
     fun getDateFormated(input:String):String{
         val inputFormatter =
