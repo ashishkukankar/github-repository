@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    android:orientation="vertical"
+    >
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="390dp"
+        android:layout_height="match_parent"
+        android:layout_margin="5dp"
+        >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:weightSum="1"
+        >
+
+
+
+    <TextView
+        android:id="@+id/repo_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="RepoName"
+        android:gravity="center_vertical"
+        android:textSize="15sp"
+        android:layout_weight=".7"
+        android:layout_margin="5dp"
+        />
+
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_weight=".3"
+        >
+
+       <TextView
+           android:id="@+id/fork"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="fork"
+        android:textSize="15sp"
+        />
+
+        <TextView
+            android:id="@+id/star"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="star"
+        android:textSize="15sp"
+        />
+    </LinearLayout>
+
+    </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</LinearLayout>
